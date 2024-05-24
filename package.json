@@ -1,0 +1,17 @@
+{
+  "name": "nodejsrevisionhelloworld",
+  "version": "1.0.0",
+  "description": "This is a revision tutorial of node js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kailash",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.0",
+    "nodemon": "^3.1.0"
+  }
+}
