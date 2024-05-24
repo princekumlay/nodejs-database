@@ -5,6 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const personRouter = require('./routers/personRouter');
 const gymbrosRouter = require('./routers/gymbrosRouter');
+require('dotenv').config();
 
 const app = express();
 
@@ -24,7 +25,8 @@ app.use('/', gymbrosRouter);
 
 
 
+const port = process.env.PORT || 3000;
 //app is listening the requests at the port 3000
-app.listen(3000, () => { 
+app.listen(port, () => { 
     console.log("app is running on port 3000");
 })

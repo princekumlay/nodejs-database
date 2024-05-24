@@ -18,7 +18,7 @@ router.post('/person', async(req, res) => {
 
           //now we save this data to the database
           const response = await newPerson.save();
-          console.log("data save successfully");
+          console.log("data save successfully to business database and Person Collection");
           res.status(200).json({response});
     }
     catch(err){
@@ -33,7 +33,7 @@ router.get('/person', async(req, res) => {
 
         //fetching data form the database
         const data = await Person.find();
-        console.log("data fetched successfully");
+        console.log("data fetched successfully from Person Collection");
         res.status(200).json({data});
 
     } catch (err) {
@@ -52,13 +52,13 @@ router.get('/person/:gender', async(req, res) => {
         //check gender matched to the available gender
         if(genderExtracted == 'Male' || genderExtracted == 'Female' || genderExtracted == 'Others'){
             const response = await Person.find({gender: genderExtracted});
-            console.log("data fetched successfully");
+            console.log("data fetched successfully from Person collection for : " + genderExtracted + " category");
             res.status(200).json({response});
         }
     } catch (err) {
         console.error(err);
         res.status(500).json({error: "Internal server error"});
-    }
+    } 
 });
 
 //lets define the update operation on the database using the http request though the route
@@ -80,7 +80,7 @@ router.put('/person/:id', async(req, res) => {
             res.status(404).json({error: "Invalid id"});
         }
         else{
-            console.log("Data updated successfully");
+            console.log("Data updated successfully in Person collection for : " + personId);
             res.status(200).json({response});
         }
 
@@ -103,7 +103,7 @@ router.delete('/person/:id', async(req, res) => {
             res.status(404).json({error: "Invalid id"});
         }
         else{
-            console.log("Person data deleted successfully");
+            console.log("data deleted successfully from the Person collection for : "+ personId);
             res.status(200).json({response});
         }
 

@@ -15,7 +15,7 @@ router.post('/gymbros', async(req, res) => {
 
           //now we save this data to the database
           const response = await newMember.save();
-          console.log("data save successfully");
+          console.log("data save successfully in gymbros collection of business database");
           res.status(200).json({response});
     }
     catch(err){
@@ -30,7 +30,7 @@ router.get('/gymbros', async(req, res) => {
 
         //fetching data form the database
         const data = await Gymbros.find();
-        console.log("data fetched successfully");
+        console.log("data fetched successfully from gymbros Collection");
         res.status(200).json({data});
 
     } catch (err) {
@@ -49,7 +49,7 @@ router.get('/gymbros/:level', async(req, res) => {
         //check level matched to the available level
         if(levelExtracted == 'Beginner' || levelExtracted == 'Intermediate' || levelExtracted == 'Advanced'){
             const response = await Gymbros.find({level: levelExtracted});
-            console.log("data fetched successfully");
+            console.log("data fetched successfully from gymbros collection for : "+levelExtracted + " level");
             res.status(200).json({response});
         }
     } catch (err) {
@@ -78,7 +78,7 @@ router.put('/gymbros/:id', async(req, res) => {
             res.status(404).json({error: "Invalid id"});
         }
         else{
-            console.log("Data updated successfully");
+            console.log("Data updated successfully in gymbros collection for : " + gymbrosId);
             res.status(200).json({response});
         }
 
@@ -102,7 +102,7 @@ router.delete('/gymbros/:id', async(req, res) => {
             res.status(404).json({error: "Invalid id"});
         }
         else{
-            console.log("Gymbros data deleted successfully");
+            console.log("Gymbros data deleted successfully from gymbros collection for : "+gymbrosId);
             res.status(200).json({response});
         }
 
